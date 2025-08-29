@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure CSS Dropdown with Ease In-Out</title>
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 220px;
+      border: 1px solid #ddd;
+    }
+
+    ul li {
+      border-bottom: 1px solid #ddd;
+      background: #f7f7f7;
+    }
+
+    label {
+      display: block;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    label:hover {
+      background: #eaeaea;
+    }
+
+    /* Hide checkbox */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    /* Inner ul initially hidden */
+    ul ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      background: #fafafa;
+    }
+
+    /* Expand when checkbox is checked */
+    input:checked ~ ul {
+      max-height: 300px; /*enough to reveal all children*/
+    }
+
+    ul ul li {
+      background: #fff;
+      padding: 8px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <ul>
+    <li>
+      <label for="menu1">Parent 1</label>
+      <input type="checkbox" id="menu1">
+      <ul>
+        <li>Child 1</li>
+        <li>Child 2</li>
+        <li>Child 3</li>
+      </ul>
+    </li>
+
+    <li>
+      <label for="menu2">Parent 2</label>
+      <input type="checkbox" id="menu2">
+      <ul>
+        <li>Child A</li>
+        <li>Child B</li>
+      </ul>
+    </li>
+  </ul>
+
+</body>
+</html>
